@@ -21,7 +21,7 @@ public class Person {
     @Column(name = "age")
     private int age;
 
-    // Удалена аннотация Id с поля city_of_living
+    @Id
     @Column(name = "city_of_living")
     private String cityOfLiving;
 

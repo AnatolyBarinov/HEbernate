@@ -6,8 +6,8 @@ public class PersonId implements Serializable {
     private String name;
     private String surname;
     private int age;
-    // Удалено поле city_of_living
 
+    private String cityOfLiving;
     public PersonId() {
     }
 
