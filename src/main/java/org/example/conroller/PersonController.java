@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-
 @RestController
 public class PersonController {
 
@@ -19,10 +18,9 @@ public class PersonController {
     public PersonController(PersonRepository personRepository) {
         this.personRepository = personRepository;
     }
-
     @GetMapping("/persons/by-city")
     public List<Person> getPersonsByCity(@RequestParam String city) {
-        return personRepository.getPersonsByCityOfLiving(city);
+        return personRepository.findByCityOfLiving(city);
     }
 
 }

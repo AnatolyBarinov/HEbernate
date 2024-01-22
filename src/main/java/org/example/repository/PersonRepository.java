@@ -9,13 +9,11 @@ import javax.persistence.PersistenceContext;
 
 @Repository
 public class PersonRepository {
-
     @PersistenceContext
     private EntityManager entityManager;
-
-    public List<Person> getPersonsByCityOfLiving(String city_of_living) {
-        return entityManager.createQuery("SELECT p FROM Person p WHERE p.city_of_living = :city", Person.class)
-                .setParameter("city", city_of_living)
+    public List<Person> findByCityOfLiving(String city) {
+        return entityManager.createQuery("SELECT p FROM Person p WHERE p.cityOfLiving = :city", Person.class)
+                .setParameter("city", city)
                 .getResultList();
     }
 }
