@@ -1,7 +1,6 @@
 package org.example.model;
 
 import javax.persistence.*;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -21,19 +20,17 @@ public class Person {
     @Column(name = "age")
     private int age;
 
-    @Id
     @Column(name = "city_of_living")
     private String cityOfLiving;
 
-    // Добавлено новое поле phoneNumber
+
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    // Пустой конструктор
-    public Person() {
-    }
 
-    // Геттеры и сеттеры всех полей, включая геттер для cityOfLiving исправленный
+    public Person() { }
+
+    // Геттеры и сеттеры для всех полей
     public String getName() {
         return name;
     }
@@ -42,7 +39,21 @@ public class Person {
         this.name = name;
     }
 
-    // Дополнительные геттеры и сеттеры для surname, age, phoneNumber
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 
     public String getCityOfLiving() {
         return cityOfLiving;

@@ -2,7 +2,6 @@ package org.example.conroller;
 
 import org.example.model.Person;
 import org.example.repository.PersonRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,7 +12,7 @@ public class PersonController {
 
     private PersonRepository personRepository;
 
-    @Autowired
+
     public PersonController(PersonRepository personRepository){
         this.personRepository = personRepository;
     }
@@ -25,7 +24,7 @@ public class PersonController {
 
     @PutMapping("/person")
     public Person updatePerson(@RequestBody Person person) {
-        return personRepository.update(person);
+        return personRepository.save(person);
     }
 
     @DeleteMapping("/person")
@@ -54,7 +53,7 @@ public class PersonController {
     }
 
     @GetMapping("/personsByNameSurname")
-    public Optional<Person> findByNameAndSurname(@RequestParam String name, @RequestParam String surname) {
+    public Person findByNameAndSurname(@RequestParam String name, @RequestParam String surname) {
         return personRepository.findByNameAndSurname(name, surname);
     }
 }

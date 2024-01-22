@@ -7,7 +7,6 @@ public class PersonId implements Serializable {
     private String surname;
     private int age;
 
-    private String cityOfLiving;
     public PersonId() {
     }
 
