@@ -1,4 +1,4 @@
-package org.example.conroller;
+package org.example.controller;
 
 import org.example.model.Person;
 import org.example.repository.PersonRepository;
@@ -11,7 +11,6 @@ import java.util.Optional;
 public class PersonController {
 
     private PersonRepository personRepository;
-
 
     public PersonController(PersonRepository personRepository){
         this.personRepository = personRepository;

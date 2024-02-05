@@ -3,12 +3,14 @@ package org.example.conroller;
 import org.example.model.Person;
 import org.example.repository.PersonRepository;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/secure")
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityPersonController {
 
     private PersonRepository personRepository;
@@ -38,7 +40,7 @@ public class SecurityPersonController {
     @PreAuthorize("#username == authentication.name")
     @GetMapping("/checkUsername")
     public Person checkUsername(@RequestParam String username) {
-        // Здесь мы будем возвращать информацию о пользователе, если имя пользователя совпадает с именем аутентификации
+        // Возвращаем информацию о пользователе, если имя пользователя совпадает с именем аутентификации
         return personRepository.findByName(username);
     }
 }

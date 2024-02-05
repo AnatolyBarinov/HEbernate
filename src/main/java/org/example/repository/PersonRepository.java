@@ -19,4 +19,5 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
     Person findByNameAndSurname(@Param("name") String name, @Param("surname") String surname);
 
 
+    Person findByName(String username);
 }
